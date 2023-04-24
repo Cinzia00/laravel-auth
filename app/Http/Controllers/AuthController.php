@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Project;
 
 class AuthController extends Controller
 {
@@ -13,7 +14,12 @@ class AuthController extends Controller
      */
     public function index()
     {
+        $projects = Project::all();
 
+        $data = [
+            'projects' => $projects
+        ];
+        return view('projects.index');
     }
 
     /**
@@ -23,7 +29,7 @@ class AuthController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**
